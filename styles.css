@@ -1,0 +1,108 @@
+/* ===== VARIABLES ORGÁNICAS ===== */
+:root {
+  --colorCrema: #f7f0e3;
+  --colorTierra: #4a3b2e;
+  --colorTierraSuave: #7a6a5a;
+  --colorTerracota: #c4673f;
+  --colorTerracotaOscuro: #a04f2c;
+  --colorSalvia: #a9b990;
+  --colorSalviaClara: #e3e9d3;
+  --colorTarjetaTienda: #fffaf0;
+  --colorBordeSuave: #e6d9c2;
+  --colorErrorTienda: #a4312b;
+  --tipografiaTitulos: Georgia, "Times New Roman", serif;
+}
+
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--colorCrema); color: var(--colorTierra); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--tipografiaTitulos); }
+a { color: inherit; }
+
+/* ===== ENCABEZADO ===== */
+.encabezadoTienda { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 12px 28px; background: rgba(247,240,227,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--colorBordeSuave); }
+.logoTienda { font-family: var(--tipografiaTitulos); font-size: 1.4rem; font-weight: 700; text-decoration: none; color: var(--colorTerracota); }
+.menuTienda { display: flex; align-items: center; gap: 20px; }
+.enlaceMenuTienda { text-decoration: none; color: var(--colorTierraSuave); }
+.enlaceMenuTienda:hover { color: var(--colorTerracota); }
+.botonAbrirCarrito { border: 2px solid var(--colorTerracota); background: transparent; color: var(--colorTerracota); padding: 6px 16px; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
+.contadorCarrito { display: inline-block; min-width: 22px; padding: 0 6px; margin-left: 4px; border-radius: 999px; background: var(--colorTerracota); color: #fff; text-align: center; font-size: .85rem; }
+
+/* ===== BOTONES ===== */
+.botonPrincipal { display: inline-block; padding: 12px 28px; border: none; border-radius: 999px 999px 999px 24px; background: var(--colorTerracota); color: #fff; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.botonPrincipal:hover { background: var(--colorTerracotaOscuro); }
+.botonSecundarioTienda { padding: 8px 16px; border: 2px solid var(--colorSalvia); background: var(--colorSalviaClara); border-radius: 999px; font: inherit; cursor: pointer; color: var(--colorTierra); }
+.botonAnchoCompleto { width: 100%; }
+
+/* ===== PORTADA ===== */
+.seccionPortada { max-width: 1040px; margin: 0 auto; padding: 72px 24px 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+@media (max-width: 760px) { .seccionPortada { grid-template-columns: 1fr; } }
+.etiquetaPortada { color: var(--colorTerracota); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: .8rem; margin: 0 0 8px; }
+.tituloPortada { font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.1; margin: 0 0 16px; }
+.descripcionPortada { color: var(--colorTierraSuave); max-width: 460px; margin: 0 0 24px; }
+.ilustracionPortada { position: relative; height: 300px; display: grid; place-items: center; }
+.formaOrganicaGrande { position: absolute; width: 260px; height: 260px; background: var(--colorSalvia); border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%; }
+.formaOrganicaChica { position: absolute; right: 8%; bottom: 6%; width: 110px; height: 110px; background: var(--colorTerracota); opacity: .85; border-radius: 40% 60% 46% 54% / 58% 42% 58% 42%; }
+.emojiPortada { position: relative; font-size: 6rem; }
+
+/* ===== BENEFICIOS ===== */
+.seccionBeneficios { max-width: 1040px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tarjetaBeneficio { background: var(--colorSalviaClara); padding: 20px; border-radius: 28px 8px 28px 8px; }
+.tarjetaBeneficio h3 { margin: 6px 0 4px; }
+.tarjetaBeneficio p { margin: 0; color: var(--colorTierraSuave); font-size: .93rem; }
+.iconoBeneficio { font-size: 1.6rem; }
+
+/* ===== CATÁLOGO ===== */
+.seccionCatalogo { max-width: 1040px; margin: 0 auto; padding: 48px 24px; }
+.tituloSeccionTienda { font-size: 2rem; margin: 0 0 20px; }
+.barraHerramientasCatalogo { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 24px; }
+.grupoFiltrosCategoria { display: flex; gap: 8px; flex-wrap: wrap; flex: 1 1 100%; }
+.botonFiltroCategoria { padding: 6px 16px; border-radius: 999px; border: 2px solid var(--colorBordeSuave); background: var(--colorTarjetaTienda); font: inherit; color: var(--colorTierra); cursor: pointer; }
+.botonFiltroActivo { background: var(--colorTerracota); border-color: var(--colorTerracota); color: #fff; }
+.campoBusqueda, .selectorOrden, .campoFormulario { padding: 10px 14px; border: 2px solid var(--colorBordeSuave); border-radius: 16px; background: var(--colorTarjetaTienda); color: var(--colorTierra); font: inherit; }
+.campoBusqueda { flex: 1 1 220px; }
+.cuadriculaProductos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.tarjetaProductoTienda { background: var(--colorTarjetaTienda); border: 1px solid var(--colorBordeSuave); border-radius: 36px 12px 36px 12px; padding: 20px; transition: transform .2s; }
+.tarjetaProductoTienda:hover { transform: translateY(-4px) rotate(-.5deg); }
+.fondoIconoProducto { width: 84px; height: 84px; display: grid; place-items: center; background: var(--colorSalviaClara); border-radius: 58% 42% 50% 50% / 50% 55% 45% 50%; font-size: 2.6rem; margin-bottom: 12px; }
+.insigniaProducto { display: inline-block; background: var(--colorTerracota); color: #fff; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+.nombreProducto { margin: 0 0 4px; font-size: 1.15rem; }
+.descripcionProducto { margin: 0 0 12px; color: var(--colorTierraSuave); font-size: .9rem; }
+.precioProducto { font-family: var(--tipografiaTitulos); font-size: 1.3rem; font-weight: 700; color: var(--colorTerracota); margin: 0 0 12px; }
+.botonAgregarProducto { width: 100%; padding: 9px; border: 2px solid var(--colorTerracota); background: transparent; color: var(--colorTerracota); border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; }
+.botonAgregarProducto:hover { background: var(--colorTerracota); color: #fff; }
+.mensajeSinResultados { display: none; text-align: center; color: var(--colorTierraSuave); }
+.mensajeSinResultadosVisible { display: block; }
+
+/* ===== PANEL LATERAL ===== */
+.fondoPanelCarrito { position: fixed; inset: 0; background: rgba(50,35,20,.45); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 30; }
+.fondoPanelVisible { opacity: 1; pointer-events: auto; }
+.panelCarritoLateral { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--colorCrema); z-index: 40; padding: 20px; overflow-y: auto; transform: translateX(100%); transition: transform .3s; border-radius: 32px 0 0 32px; box-shadow: -8px 0 30px rgba(0,0,0,.15); }
+.panelAbierto { transform: translateX(0); }
+.cabeceraPanelCarrito { display: flex; justify-content: space-between; align-items: center; }
+.tituloPanelCarrito { margin: 0; }
+.botonCerrarPanel { border: none; background: var(--colorSalviaClara); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; color: var(--colorTierra); }
+.listaItemsCarrito { list-style: none; margin: 16px 0; padding: 0; }
+.itemCarrito { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px dashed var(--colorBordeSuave); }
+.controlesCantidad { display: flex; align-items: center; gap: 8px; }
+.botonCantidad { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--colorSalvia); background: transparent; cursor: pointer; color: var(--colorTierra); }
+.mensajeCarritoVacio { color: var(--colorTierraSuave); padding: 12px 0; }
+
+/* ===== CHECKOUT ===== */
+.formularioCheckout { display: grid; gap: 12px; }
+.filaCupon { display: flex; gap: 8px; }
+.filaCupon .campoFormulario { flex: 1; }
+.mensajeCupon { margin: 0; font-size: .85rem; min-height: 1.2em; color: var(--colorTerracotaOscuro); }
+.etiquetaFormulario { display: grid; gap: 4px; font-weight: 600; font-size: .9rem; }
+.campoFormulario { width: 100%; }
+.campoConErrorFormulario { border-color: var(--colorErrorTienda); }
+.mensajeErrorFormulario { color: var(--colorErrorTienda); font-size: .8rem; font-weight: 400; min-height: 1em; }
+.grupoMediosPago { border: 2px solid var(--colorBordeSuave); border-radius: 16px; display: flex; gap: 14px; flex-wrap: wrap; padding: 8px 14px; }
+.resumenPedido { margin: 8px 0 0; padding: 14px; background: var(--colorSalviaClara); border-radius: 20px; }
+.filaResumen { display: flex; justify-content: space-between; margin: 0; }
+.filaResumen dt, .filaResumen dd { margin: 0; }
+.filaResumenTotal { font-weight: 700; font-size: 1.15rem; border-top: 1px dashed var(--colorSalvia); margin-top: 6px; padding-top: 6px; }
+.mensajeConfirmacionPedido { margin: 0; font-weight: 600; color: var(--colorTerracotaOscuro); }
+
+/* ===== PIE ===== */
+.piePaginaTienda { text-align: center; padding: 32px 16px; color: var(--colorTierraSuave); font-size: .88rem; }

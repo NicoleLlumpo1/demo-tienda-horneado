@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horno Casero | Demo de tienda online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezadoTienda">
+    <a class="logoTienda" href="#seccionInicio">🌾 Horno Casero</a>
+    <nav class="menuTienda">
+      <a class="enlaceMenuTienda" href="#seccionCatalogo">Catálogo</a>
+      <a class="enlaceMenuTienda" href="#seccionBeneficios">Nosotros</a>
+      <button class="botonAbrirCarrito" id="botonAbrirCarrito" type="button">
+        Carrito <span class="contadorCarrito" id="contadorItemsCarrito">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="seccionPortada" id="seccionInicio">
+      <div class="textoPortada">
+        <p class="etiquetaPortada">Hecho a mano, cada semana</p>
+        <h1 class="tituloPortada">Horneados caseros que saben a hogar</h1>
+        <p class="descripcionPortada">Budines, focaccia, rolls y galletitas con ingredientes simples. Elegí, sumá al carrito y coordiná tu entrega.</p>
+        <a class="botonPrincipal" href="#seccionCatalogo">Ver catálogo</a>
+      </div>
+      <div class="ilustracionPortada" aria-hidden="true">
+        <span class="formaOrganicaGrande"></span>
+        <span class="formaOrganicaChica"></span>
+        <span class="emojiPortada">🥖</span>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="seccionBeneficios" id="seccionBeneficios">
+      <article class="tarjetaBeneficio"><span class="iconoBeneficio">🌿</span><h3>Ingredientes simples</h3><p>Sin conservantes, con manteca y harinas de calidad.</p></article>
+      <article class="tarjetaBeneficio"><span class="iconoBeneficio">🛵</span><h3>Entrega coordinada</h3><p>Elegís tu zona y calculamos el envío al instante.</p></article>
+      <article class="tarjetaBeneficio"><span class="iconoBeneficio">💳</span><h3>Varios medios de pago</h3><p>Tarjeta, transferencia o efectivo al recibir.</p></article>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="seccionCatalogo" id="seccionCatalogo">
+      <h2 class="tituloSeccionTienda">Nuestro catálogo</h2>
+      <div class="barraHerramientasCatalogo">
+        <div class="grupoFiltrosCategoria" id="contenedorFiltrosCategoria"></div>
+        <input class="campoBusqueda" id="campoBusquedaProducto" type="search" placeholder="Buscar producto…">
+        <select class="selectorOrden" id="selectorOrdenProductos">
+          <option value="relevancia">Ordenar: destacados</option>
+          <option value="menorPrecio">Menor precio</option>
+          <option value="mayorPrecio">Mayor precio</option>
+          <option value="nombre">Nombre (A-Z)</option>
+        </select>
+      </div>
+      <div class="cuadriculaProductos" id="contenedorProductos"></div>
+      <p class="mensajeSinResultados" id="mensajeSinResultados">No encontramos productos con ese criterio.</p>
+    </section>
+  </main>
+
+  <footer class="piePaginaTienda">Demo de tienda estilo WooCommerce · Hecha con HTML, CSS y JavaScript · Nicole Llumpo</footer>
+
+  <!-- FONDO OSCURO DEL PANEL -->
+  <div class="fondoPanelCarrito" id="fondoPanelCarrito"></div>
+
+  <!-- PANEL DE CARRITO Y CHECKOUT -->
+  <aside class="panelCarritoLateral" id="panelCarritoLateral">
+    <div class="cabeceraPanelCarrito">
+      <h2 class="tituloPanelCarrito">Tu pedido</h2>
+      <button class="botonCerrarPanel" id="botonCerrarCarrito" type="button" aria-label="Cerrar">✕</button>
+    </div>
+    <ul class="listaItemsCarrito" id="listaItemsCarrito"></ul>
+
+    <form class="formularioCheckout" id="formularioCheckout" novalidate>
+      <div class="filaCupon">
+        <input class="campoFormulario" id="campoCuponDescuento" type="text" placeholder="Cupón (probá BIENVENIDA10)">
+        <button class="botonSecundarioTienda" id="botonAplicarCupon" type="button">Aplicar</button>
+      </div>
+      <p class="mensajeCupon" id="mensajeCupon"></p>
+
+      <label class="etiquetaFormulario">Nombre
+        <input class="campoFormulario" id="campoNombreCliente" type="text">
+        <span class="mensajeErrorFormulario" id="errorNombreCliente"></span>
+      </label>
+      <label class="etiquetaFormulario">Email
+        <input class="campoFormulario" id="campoEmailCliente" type="email">
+        <span class="mensajeErrorFormulario" id="errorEmailCliente"></span>
+      </label>
+      <label class="etiquetaFormulario">Zona de entrega
+        <select class="campoFormulario" id="selectorZonaEntrega">
+          <option value="0">Retiro por el local (gratis)</option>
+          <option value="1500">Zona cercana (+$1.500)</option>
+          <option value="2800">Zona lejana (+$2.800)</option>
+        </select>
+      </label>
+      <fieldset class="grupoMediosPago">
+        <legend>Medio de pago</legend>
+        <label class="opcionMedioPago"><input type="radio" name="medioPago" value="Tarjeta" checked> Tarjeta</label>
+        <label class="opcionMedioPago"><input type="radio" name="medioPago" value="Transferencia"> Transferencia</label>
+        <label class="opcionMedioPago"><input type="radio" name="medioPago" value="Efectivo"> Efectivo</label>
+      </fieldset>
+
+      <dl class="resumenPedido">
+        <div class="filaResumen"><dt>Subtotal</dt><dd id="textoSubtotal">$0</dd></div>
+        <div class="filaResumen"><dt>Descuento</dt><dd id="textoDescuento">-$0</dd></div>
+        <div class="filaResumen"><dt>Envío</dt><dd id="textoEnvio">$0</dd></div>
+        <div class="filaResumen filaResumenTotal"><dt>Total</dt><dd id="textoTotalPedido">$0</dd></div>
+      </dl>
+      <button class="botonPrincipal botonAnchoCompleto" type="submit">Confirmar pedido</button>
+      <p class="mensajeConfirmacionPedido" id="mensajeConfirmacionPedido"></p>
+    </form>
+  </aside>
+
+  <script src="logicaTiendaHorneadosDemo.js"></script>
+</body>
+</html>
